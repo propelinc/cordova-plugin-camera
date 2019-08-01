@@ -299,7 +299,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
                 applicationId + ".provider",
                 photo));
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri.getCorrectUri());
-        //We can write to this URI, this will hopefully allow us to write files to get to the next step
+        // We can write to this URI, this will hopefully allow us to write files to get to the next step
         intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
 
         if (this.cordova != null) {
@@ -1237,11 +1237,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
      * @return Uri
      */
     private Uri whichContentStore() {
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            return MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        } else {
-            return MediaStore.Images.Media.INTERNAL_CONTENT_URI;
-        }
+        return MediaStore.Images.Media.INTERNAL_CONTENT_URI;
     }
 
     /**
